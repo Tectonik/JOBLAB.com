@@ -1,0 +1,1333 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOBLAB</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+  /* Global Styles */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #470909;
+}
+
+header {
+  background-color: #470909;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  box-shadow: 5px 7px 10px rgba(0, 0, 0, 0.4);
+}
+
+header nav ul {
+  display: flex;
+  text-align: center;
+  list-style: none;
+  padding: 5px;
+}
+
+
+header li {
+  font-size: 12px;
+  margin: 0 auto;
+  color: #f9f9f9;
+  padding: auto;
+  margin: 8px;
+}
+
+header li a {
+  text-decoration: none;
+  color: #f9f9f9;
+}
+
+header:has(li:hover) li:not(:hover) {
+  filter: blur(10px);
+  transform: scale(0.9, 0.9);
+  transition: transform 0.3s, filter 0.3s;
+}
+
+header li:hover {
+  transform: scale(1.1, 1.1);
+}
+
+
+.nav {
+  display: flex;
+  justify-content: center;
+  pointer-events: cursor;
+}
+
+.nav a.active {
+  background-color: #ff9900;
+  padding: 7px;
+  border-radius: 5px;
+  color: #070707;
+  font-weight: 800;
+}
+
+
+.vidbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.5;
+  filter: blur(3px);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+
+#myVideo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin-left: 4%;
+ }
+
+
+ .over {
+  position: absolute;
+  top: 4rem;
+  color: #fff;
+  place-items: center;
+  padding: 20px;
+  z-index: 1;
+  }
+
+.over h2 {
+  font-size: 4rem;
+  font-size: clamp(1rem, 2vw, 5rem);
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+}
+
+/* Hero Section Styles */
+
+.hero {
+  
+  background-size: 100% 300px;
+  background-position: 0% 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.hero .container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 39px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.lab {
+  margin-top: -38px;
+}
+
+.text4 {
+ font-size: 20px;
+}
+
+.hero p {
+  font-size: 4rem;
+  font-size: cramp(1rem, 2vw, 4rem);
+  margin-bottom: 20px;
+}
+
+/* Call-to-Action Button Styles */
+
+.cta {
+  background-color: #ffcc00;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cta:hover {
+  background-color: #ff9900;
+  color: #fff;
+}
+
+.write {
+  max-width: 80%;
+  margin: 40px auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+  padding: 20px;
+  place-items: center;
+}
+
+.write p {
+  color: #f1eeee;
+  font-size: 2rem;
+  font-size: clamp(1rem, 2vw, 3rem);
+  text-align: center;
+}
+
+.write b {
+  font-weight: bold;
+  color: #ec840e;
+}
+
+
+.write2 {
+  width: 100%;
+  margin: 30px auto;
+  margin-top: -2%;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+  background-color: #070707;
+  border-radius: 5px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+  padding: 20px;
+}
+
+.write2 p {
+  color: #f1eeee;
+  font-size: 2rem;
+  font-size: clamp(1rem, 2vw, 3rem);
+}
+
+.GRID {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+  padding: 10%;
+  justify-content: center;
+  align-items: center; /* Add this */
+  justify-items: center; /* Add this */
+}
+
+
+
+
+.text1 {
+  background-color: #25c017;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  padding: 20px;
+  transition: all 0.3s ease;
+  width: 400px;
+  margin: 10px;
+  
+}
+
+.text1:hover {
+  box-shadow: 0 0 20px rgba(238, 175, 57, 0.9);
+}
+
+.text1 img {
+  width: 80px;
+  height: auto;
+  margin-right: 2px;
+  position: relative;
+  top: 5px;
+}
+
+.text1 h1 {
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.text1 h4 {
+  font-size: 14px;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+}
+
+.text1 p {
+  display: none;
+  font-size: 14px;
+  color: #000000;
+  padding: 20px;
+  background-color: rgba(51, 199, 31, 0.5);
+  border-radius: 10px;
+}
+
+.text1.clicked1 p {
+  display: block;
+}
+
+.text1.clicked1 {
+  background-color: #bef774;
+}
+
+
+
+
+
+.text2 {
+  background-color: #c45413;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  padding: 10px;
+  transition: all 0.3s ease;
+  width: 400px;
+  margin: 10px;
+}
+
+.text2:hover {
+  box-shadow: 0 0 20px rgba(238, 175, 57, 0.9);
+}
+
+.text2 img {
+  width: 80px;
+  height: auto;
+  margin-right: 2px;
+  position: relative;
+  top: 5px;
+}
+
+.text2 h1 {
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.text2 h4 {
+  font-size: 14px;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+}
+
+.text2 p {
+  display: none;
+  font-size: 14px;
+  color: #000000;
+  padding: 20px;
+  background-color: rgba(190, 126, 42, 0.5);
+  border-radius: 10px;
+}
+
+.text2.clicked2 p {
+  display: block;
+}
+
+.text2.clicked2 {
+  background-color: #e7854d;
+}
+
+
+
+
+
+.text3 {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  padding: 20px;
+  transition: all 0.3s ease;
+  width: 400px;
+  margin: 10px;
+}
+
+.text3:hover {
+  box-shadow: 0 0 20px rgba(238, 175, 57, 0.9);
+}
+
+.text3 img {
+  width: 80px;
+  height: auto;
+  margin-right: 2px;
+  position: relative;
+  top: 5px;
+}
+
+.text3 h1 {
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.text3 h4 {
+  font-size: 14px;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+}
+
+.text3 p {
+  display: none;
+  font-size: 14px;
+  color: #000000;
+  padding: 20px;
+  background-color: rgba(51, 199, 31, 0.5);
+  border-radius: 10px;
+}
+
+.text3.clicked3 p {
+  display: block;
+}
+
+.text3.clicked3 {
+  background-color: #f9f9f9;
+}
+
+/* Responsive Design */
+
+
+
+/* Minimum width for large screen devices */
+/* Extra Large screen styles */
+@media (min-width: 1366px) {
+  /* styles for large screens */
+  .hero {
+    height: 100vh;
+    padding: 30px;
+  }
+  .hero .container {
+    max-width: 80%;
+  }
+  .hero h1 {
+    font-size: 70px;
+  }
+  .text2 {
+    font-size: 42px;
+  }
+  .hero p {
+    font-size: 30px;
+  }
+  .cta {
+    padding: 20px 40px;
+    font-size: 40px;
+  }
+  .vidbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #myVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .GRID {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15%;
+    width: 90%;
+    padding: 5%;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+  }
+  .text1, .text2, .text3 {
+    width: 155%;
+    margin: 10px;
+    padding: 50px;
+  }
+}
+
+ /*high large screen styles */
+
+ @media (max-width: 1365px) and (min-width: 1200px) {
+  /* styles for small screens */
+  .hero {
+    height: 100%;
+    padding: 0;
+  }
+  .hero .container {
+    max-width: 100%;
+  }
+  .hero h1 {
+    font-size: 30px;
+  }
+  .text2 {
+    font-size: 16px;
+  }
+  .hero p {
+    font-size: 14px;
+  }
+  .cta {
+    padding: 6px 12px;
+    font-size: 15px;
+  }
+  header li {
+    margin: 4px;
+    font-size: 10px;
+  }
+  .lab {
+    margin-top: -30px;
+  }
+  .over {
+  margin-top: -2.5%;
+}
+  .vidbox { 
+    position: absolute;
+    top: 5%;
+    left: -1%;
+    width: 100%;
+    aspect-ratio: 16/9;
+    z-index: -1;
+    opacity: 0.5;
+    overflow: hidden;
+  }
+  .GRID {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 120px;
+  width: 90.5%;
+  padding: 10%;
+  justify-content: center;
+  align-items: center; /* Add this */
+  justify-items: center; /* Add this */
+}
+ .text1, .text2, .text3 {
+  width: 140%;
+  margin: 20px;
+  padding: 30px;
+ }
+}
+ 
+
+ /* mid extra large screen styles */
+
+ @media (max-width: 1199px) and (min-width: 1100px) {
+  /* styles for small screens */
+  .hero {
+    height: 100%;
+    padding: 0;
+  }
+  .hero .container {
+    max-width: 100%;
+  }
+  .hero h1 {
+    font-size: 30px;
+  }
+  .text2 {
+    font-size: 16px;
+  }
+  .hero p {
+    font-size: 14px;
+  }
+  .cta {
+    padding: 6px 12px;
+    font-size: 15px;
+  }
+  header li {
+    margin: 4px;
+    font-size: 10px;
+  }
+  .lab {
+    margin-top: -30px;
+  }
+  .vidbox { 
+    position: absolute;
+    top: 5%;
+    left: -1%;
+    width: 100%;
+    aspect-ratio: 16/9;
+    z-index: -1;
+    opacity: 0.5;
+    overflow: hidden;
+  }
+  .GRID {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 100px;
+  width: 86.5%;
+  padding: 10%;
+  justify-content: center;
+  align-items: center; /* Add this */
+  justify-items: center; /* Add this */
+}
+ .text1, .text2, .text3 {
+  width: 140%;
+  margin: 20px;
+  padding: 30px;
+ }
+} 
+
+
+ /*low extra large screen styles */
+
+ @media (max-width: 1099px) and (min-width: 1000px) {
+  /* styles for small screens */
+  .hero {
+    height: 100%;
+    padding: 0;
+  }
+  .hero .container {
+    max-width: 100%;
+  }
+  .hero h1 {
+    font-size: 30px;
+  }
+  .text2 {
+    font-size: 16px;
+  }
+  .hero p {
+    font-size: 14px;
+  }
+  .cta {
+    padding: 6px 12px;
+    font-size: 15px;
+  }
+  header li {
+    margin: 4px;
+    font-size: 10px;
+  }
+  .lab {
+    margin-top: -30px;
+  }
+  .vidbox { 
+    position: absolute;
+    top: 5%;
+    left: -1%;
+    width: 100%;
+    aspect-ratio: 16/9;
+    z-index: -1;
+    opacity: 0.5;
+    overflow: hidden;
+  }
+  .over {
+  margin-top: -2.5%;
+}
+  .GRID {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 100px;
+  width: 86.5%;
+  padding: 10%;
+  justify-content: center;
+  align-items: center; /* Add this */
+  justify-items: center; /* Add this */
+}
+ .text1, .text2, .text3 {
+  width: 140%;
+  margin: 20px;
+  padding: 30px;
+ }
+}
+
+
+ /*high large screen styles */
+
+ @media (max-width: 999px) and (min-width: 900px) {
+  /* styles for small screens */
+  .hero {
+    height: 100%;
+    padding: 0;
+  }
+  .hero .container {
+    max-width: 100%;
+  }
+  .hero h1 {
+    font-size: 30px;
+  }
+  .text2 {
+    font-size: 16px;
+  }
+  .hero p {
+    font-size: 14px;
+  }
+  .cta {
+    padding: 6px 12px;
+    font-size: 15px;
+  }
+  header li {
+    margin: 4px;
+    font-size: 10px;
+  }
+  .lab {
+    margin-top: -30px;
+  }
+  .over {
+  margin-top: -2.5%;
+}
+  .vidbox { 
+    position: absolute;
+    top: 5%;
+    left: -1%;
+    width: 100%;
+    aspect-ratio: 16/9;
+    z-index: -1;
+    opacity: 0.5;
+    overflow: hidden;
+  }
+  .GRID {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 100px;
+  width: 86.5%;
+  padding: 10%;
+  justify-content: center;
+  align-items: center; /* Add this */
+  justify-items: center; /* Add this */
+}
+ .text1, .text2, .text3 {
+  width: 140%;
+  margin: 20px;
+  padding: 30px;
+ }
+}
+
+
+ /*mid large screen styles */
+
+ @media (max-width: 899px) and (min-width: 800px) {
+  /* styles for small screens */
+  .hero {
+    height: 100%;
+    padding: 0;
+  }
+  .hero .container {
+    max-width: 100%;
+  }
+  .hero h1 {
+    font-size: 30px;
+  }
+  .text2 {
+    font-size: 16px;
+  }
+  .hero p {
+    font-size: 14px;
+  }
+  .cta {
+    padding: 6px 12px;
+    font-size: 15px;
+  }
+  header li {
+    margin: 4px;
+    font-size: 10px;
+  }
+  .lab {
+    margin-top: -30px;
+  }
+  .over {
+  margin-top: -2.5%;
+}
+.vidbox {
+  position: absolute;
+  top: 2%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.5;
+  filter: blur(3px);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+  #myVideo {
+  position: relative;
+  left: 10PX;
+  object-fit: cover;
+  width: 200%;
+  height: 100%;
+  margin-left: 0PX;
+ }
+  .GRID {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 80px;
+  width: 90%;
+  padding: 10%;
+  justify-content: center;
+  align-items: center; /* Add this */
+  justify-items: center; /* Add this */
+}
+ .text1, .text2, .text3 {
+  width: 120%;
+  margin: 20px;
+  padding: 20px;
+ }
+}
+
+
+ /*low large screen styles */
+
+ @media (max-width: 799px) and (min-width: 700px) {
+  /* styles for small screens */
+  .hero {
+    height: 100%;
+    padding: 0;
+  }
+  .hero .container {
+    max-width: 100%;
+  }
+  .hero h1 {
+    font-size: 30px;
+  }
+  .text2 {
+    font-size: 16px;
+  }
+  .hero p {
+    font-size: 14px;
+  }
+  .cta {
+    padding: 6px 12px;
+    font-size: 15px;
+  }
+  header li {
+    margin: 4px;
+    font-size: 10px;
+  }
+  .lab {
+    margin-top: -30px;
+  }
+  .over {
+  margin-top: -2.5%;
+}
+.vidbox {
+  position: absolute;
+  top: 2%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.5;
+  filter: blur(3px);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+  #myVideo {
+  position: relative;
+  left: 100PX;
+  object-fit: cover;
+  width: 200%;
+  height: 100%;
+  margin-left: 0PX;
+ }
+  .GRID {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 75px;
+  width: 87.4%;
+  padding: 10%;
+  justify-content: center;
+  align-items: center; /* Add this */
+  justify-items: center; /* Add this */
+}
+ .text1, .text2, .text3 {
+  width: 140%;
+  margin: 10px;
+  padding: 20px;
+ }
+  
+}
+
+
+ /* high Medium screen styles */
+
+ @media (max-width: 699px) and (min-width: 600px) {
+  /* styles for small screens */
+  .hero {
+    height: 100%;
+    padding: 0;
+  }
+  .hero .container {
+    max-width: 100%;
+  }
+  .hero h1 {
+    font-size: 30px;
+  }
+  .text2 {
+    font-size: 16px;
+  }
+  .hero p {
+    font-size: 14px;
+  }
+  .cta {
+    padding: 6px 12px;
+    font-size: 15px;
+  }
+  header li {
+    margin: 4px;
+    font-size: 10px;
+  }
+  .lab {
+    margin-top: -30px;
+  }
+  .over {
+  margin-top: -2.5%;
+}
+.vidbox {
+  position: absolute;
+  top: 2%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.5;
+  filter: blur(3px);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+ .vidbox {
+  position: absolute;
+  top: 2%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.5;
+  filter: blur(3px);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+  #myVideo {
+  position: relative;
+  left: 120PX;
+  object-fit: cover;
+  width: 200%;
+  height: 100%;
+  margin-left: 0PX;
+ }
+  .GRID {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  padding: 10%;
+  justify-content: center;
+  align-items: center; /* Add this */
+  justify-items: center; /* Add this */
+}
+ 
+}
+
+
+ /*mid Medium screen styles */
+
+ @media (max-width: 599px) and (min-width: 500px) {
+  /* styles for small screens */
+  .hero {
+    height: 100%;
+    padding: 0;
+  }
+  .hero .container {
+    max-width: 100%;
+  }
+  .hero h1 {
+    font-size: 30px;
+  }
+  .text2 {
+    font-size: 16px;
+  }
+  .hero p {
+    font-size: 14px;
+  }
+  .cta {
+    padding: 6px 12px;
+    font-size: 15px;
+  }
+  header li {
+    margin: 4px;
+    font-size: 10px;
+  }
+  .lab {
+    margin-top: -30px;
+  }
+  .over {
+  margin-top: -2.5%;
+}
+.vidbox {
+  position: absolute;
+  top: 2%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.5;
+  filter: blur(3px);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+  #myVideo {
+  position: relative;
+  left: 130PX;
+  object-fit: cover;
+  width: 200%;
+  height: 100%;
+  margin-left: 0PX;
+ }
+  .GRID {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  row-gap: 1%;
+  padding: 10%;
+  justify-content: center;
+  align-items: center; /* Add this */
+  justify-items: center; /* Add this */
+}
+ 
+}
+
+
+
+ /*low Medium screen styles */
+
+ @media (max-width: 499px) and (min-width: 400px) {
+  /* styles for small screens */
+  .hero {
+    height: 100%;
+    padding: 0;
+  }
+  .hero .container {
+    max-width: 80%;
+  }
+  .hero h1 {
+    font-size: 30px;
+  }
+  .text2 {
+    font-size: 16px;
+  }
+  .hero p {
+    font-size: 14px;
+  }
+  .cta {
+    padding: 6px 12px;
+    font-size: 15px;
+  }
+  header li {
+    margin: 4px;
+    font-size: 10px;
+  }
+  .lab {
+    margin-top: -30px;
+  }
+  .over {
+  margin-top: -2.5%;
+}
+.vidbox {
+  position: absolute;
+  top: 2%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.5;
+  filter: blur(3px);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+  #myVideo {
+  position: relative;
+  left: 190PX;
+  object-fit: cover;
+  width: 200%;
+  height: 100%;
+  margin-left: 0PX;
+ }
+  .GRID {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  padding: 10%;
+  justify-content: center;
+  align-items: center; /* Add this */
+  justify-items: center; /* Add this */
+ }
+
+  .text1, .text2, .text3 {
+  place-items: center;
+  width: 23rem;
+  }
+
+}
+
+
+ /*small screen styles */
+
+ @media (max-width: 399px) and (min-width: 300px) {
+  /* styles for small screens */
+  .hero {
+    height: 100%;
+    padding: 0;
+  }
+  .hero .container {
+    max-width: 100%;
+  }
+  .hero h1 {
+    font-size: 30px;
+  }
+  .text2 {
+    font-size: 16px;
+  }
+  .hero p {
+    font-size: 14px;
+  }
+  .cta {
+    padding: 6px 12px;
+    font-size: 15px;
+  }
+  header li {
+    margin: 4px;
+    font-size: 10px;
+  }
+  .lab {
+    margin-top: -30px;
+  }
+  .over {
+  margin-top: -2.5%;
+}
+.vidbox {
+  position: absolute;
+  top: 2%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.5;
+  filter: blur(3px);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+  #myVideo {
+  position: relative;
+  left: 110PX;
+  object-fit: cover;
+  width: 180%;
+  height: 100%;
+  margin-left: 0PX;
+ }
+  .GRID {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  padding: 10%;
+  justify-content: center;
+  align-items: center; /* Add this */
+  justify-items: center; /* Add this */
+}
+.text1, .text2, .text3 {
+  place-items: center;
+  width: 18rem;
+  }
+}
+
+
+
+
+
+/* Smaller screen styles */
+@media (max-width: 299px) and (min-width: 200px) {
+  /* styles for small screens */
+  .hero {
+    height: 100%;
+    padding: 0;
+  }
+  .hero .container {
+    max-width: 100%;
+  }
+  .hero h1 {
+    font-size: 30px;
+  }
+  .text2 {
+    font-size: 16px;
+  }
+  .hero p {
+    font-size: 14px;
+  }
+  .cta {
+    padding: 6px 12px;
+    font-size: 15px;
+  }
+  header li {
+    margin: 4px;
+    font-size: 10px;
+  }
+  .lab {
+    margin-top: -30px;
+  }
+  .over {
+  margin-top: 2.5%;
+}
+
+.vidbox {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.5;
+  filter: blur(3px);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+  #myVideo {
+  position: relative;
+  left: 65PX;
+  object-fit: cover;
+  width: 165%;
+  height: 100%;
+  margin-left: 0PX;
+ }
+  .GRID {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 10%;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+  }
+  .text1, .text2, .text3 {
+  place-items: center;
+  width: 12.5rem;
+  }
+}
+
+/* footer elements */
+footer p {
+  color: #ff9900;
+}
+.letter6 {
+  text-transform: uppercase;
+  background-color: #691313;
+  border-radius: 5px;
+  padding: 15px;
+  font-weight: 800;
+}
+  </style>
+  </head>
+
+  <body>
+
+    <header>
+
+    <nav>
+      <div class="nav">
+      <ul>
+        <li><a class="active" href="#">HOME</a></li>
+        <li><a href="#">ABOUT US</a></li>
+        <li><a href="#">CONTACT US</a></li>
+        <li><a href="#">JOIN THE HUNT</a></li>
+      </ul>
+      </div>
+    </nav>
+
+    </header>
+
+    <main>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="vidbox">
+    <!-- The video -->
+<video autoplay loop muted id="myVideo"> 
+<source src="VID.mp4" type="video/mp4"> 
+</video>
+</div>
+
+<div class="over">
+  <h2>Oversea Job Hunters</h2>
+  </div>
+  
+  <div class="container">
+    <h1>JOB</h1>
+    <h1 class="lab">LAB</h1>
+    <h1 class="text4">Empowering Your Success</h1>
+    <p>Our mission is to help you achieve your goals and reach new heights.</p>
+    <button class="cta">Learn More About Us</button>
+  </div>
+</section>
+
+
+<div class="write">
+  <p>Welcome to <b>JOB LAB</b>, <p>an operation powered by littlewood recruitment services which is channeled towards job opportunities abroad.</p> 
+  <p><br>We utilizes a personalized approach to match talented individuals with rewarding career opportunities worldwide.</p> 
+</div>
+
+<div class="write2">
+  <p>From strategic job placement to comprehensive support services, we facilitate a seamless transition to your next career chapter. Explore the possibilities with JOB LAB and discover a world of career opportunities at your fingertips.</p>
+</div>
+
+
+<div class="GRID">
+<div class="grid1">
+  <div class="text1" onclick="this.classList.toggle('clicked1')">
+    <h1><img src="Find.png" alt="Hunting Icon"> HUNT</h1>
+    <h4>for the perfect opportunity</h4>
+    <p>Our expert team will help you explore the global job market, identifying opportunities that match your skills and interests. We'll guide you through the process of discovering new industries, companies, and roles that align with your career goals.</p>
+  </div>
+  </div>
+
+  <div class="grid2">
+  <div class="text2" onclick="this.classList.toggle('clicked2')">
+    <h1><img src="Find.png" alt="Hunting Icon"> FIND</h1>
+    <h4>your ideal match</h4>
+    <p>Imagine finding your dream job abroad, where your skills and experience are truly valued. We're here to make that a reality. With our innovative technology and personalized support, we'll guide you every step of the way.
+    <br> <br>From crafting a compelling application to acing interviews and connecting with top employers, we've got you covered. Our goal is to help you land a job that's not just a good fit, but a perfect match for your career aspirations.</p>
+  </div>
+  </div>
+
+  <div class="grid3">
+  <div class="text3" onclick="this.classList.toggle('clicked3')">
+    <h1><img src="Find.png" alt="Hunting Icon"> SUCCEED</h1>
+    <h4>In your dreams</h4>
+    <p>Once you've landed your dream job, our support doesn't end there. We'll provide you with the resources and guidance needed to succeed in your new role and navigate the challenges of working abroad. From cultural adaptation to professional growth, we'll be with you every step of the way.</p>
+  </div>
+</div>
+</div>
+
+</main>
+
+
+<footer>
+  <marquee><p>proudly sponsored by <span class="letter6"> littlewood recruitment services</span><p></marquee>
+</footer>
+</body>
+</html>
